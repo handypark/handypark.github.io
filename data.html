@@ -40,6 +40,11 @@ title: Data
 		turns out that this is the case, as shown below:
 	</p>
 	<p>
+		<img src="images/OnBase.png"
+     		alt="Having runners on base is correlated with higher average runs scored on a play."
+     		title="Run Scored based on Bases Occupied">
+	</p>
+	<p>
 		As we see above, it's clear that having a runner on any base is highly linked to runs being scored. Even when a runner 
 		is on first base, more runs are scored on average through a plate appearance (around .2 runs per plate appearance) than 
 		for those without a runner on first base (less than .1 runs per plate appearance). And for second base (the "runner in 
@@ -48,12 +53,22 @@ title: Data
 		average on a plate appearance, and having any runner on base at all (even first base) is also linked to increased runs 
 		scored on average for a plate appearance.
 	</p>
-	<h3>EDA Lesson #2: The score of the game doesn't quite matter.</h3>
+	<h3>EDA Lesson #2: The score of the game has less effect than the state of the bases.</h3>
 	<p>
 		One aspect that we found to have little linkage to runs scored during a plate appearance was that of the score of the 
 		batting or fielding team when a plate appearance occurred. In Figure \ref{fig:TeamScores}, you can see that except for a 
 		couple of outlier scores, the average number of runs scored for a plate appearance varied relatively little when 
 		comparing the averages over many possible scores. 
+	</p>
+	<p>
+		<img src="images/BattingPbP.png"
+     		alt="Score of the batting team has only a minimal efect on plate appearances."
+     		title="Batting Play-by-Play EDA">
+	</p>
+	<p>
+		<img src="images/FieldingPbP.png"
+     		alt="Score of the fielding team has only a minimal efect on plate appearances."
+     		title="Fielding Play-by-Play EDA">
 	</p>
 	<p>
 		There are slight trends we might identify; low-scoring teams in a game seem to have slightly smaller average points 
@@ -70,12 +85,16 @@ title: Data
 	</p>
 	<h3>Our finalized study questions:</h3>
 	<p>
-		In the wake of our exploratory data analysis and research, we thus decided to focus on the following study question:	
+		Here, we noticed the strong links between having baserunnners on base and scoring on a plate appearances, and also
+		looking at the impacts of game scores and batting statistics on plate appearances. Thus, in the wake of our exploratory 
+		data analysis and research, we thus decided to focus on the following study questions:	
 	</p>
 	<p>
-		Using this data, can we develop strategies for picking batters; namely, can we determine which factors would make a
-		batter more likely to score than another batter for a given scenario? Such given scenarios might be related to the state of
-		each base (whether the bases are loaded or no one is on base, etc.) or to the score of the game (how much of a lead
-		or deficit the batting team faces).
+		Using this data, can we develop strategies for picking batters in a given scenario? Namely:
 	</p>
+	<ul>	
+		<li>What kinds of batters are best in general for scoring runs on a plate appearance?</li>
+		<li>Which batters are better to pick when the bases are loaded or no one is on base?</li>
+		<li>Which batters are better to pick in certain game score situations?</li>
+	</ul>
 </div><!-- /.blurb -->
