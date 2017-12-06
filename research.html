@@ -6,4 +6,44 @@ title: Research
 <div class="blurb">
 	<h1>CS 109a: Final Project</h1>
 	<h2>Research</h2>
+	<p>
+		Our initial plan to work with the data in our models actually incorporated pitching statistics. We originally theorized that
+		given a stronger pitcher or a weaker pitcher (which we might be able to detect via pitching statistics), a batter would have
+		a stronger or weaker chance of scoring a run or not scoring a run. Baseball fans point to statistics such as ERA 
+		(Earned Runs Allowed) or the number of wins a pitcher has to point to the success or failure of pitchers to stop 
+		opposing batters from successfully scoring.
+	</p>
+	<p>
+		However, our review of the literature actually showed us an important aspect that we then decided to take
+		into consideration for our models - pitching statistics are not a good predictor of opponents' batting success. 
+		Utilizing pitching statistics might contribute more noise to our model predictions rather than actually helping us
+		see whether plate appearances by batters would be likely to score runs or not score runs.
+	</p>
+	<p>
+		A couple of resources helped us to determine that using pitching statistics might not be a great plan, by talking about the lack
+		of importance of pitching overall in preventing runs. One important source of information was the seminal research of Voros McCracken, which
+		he reported on in 2001. McCracken's work (https://www.baseballprospectus.com/news/article/878/pitching-and-defense-how-much-control-do-hurlers-have)
+		divided pitchers' statistical performance into two categories: defense-dependent statistics, and defense-independent statistics.
+		McCracken used these categories to help assess the effect that pitchers had on gameplay, and found that repeatedly that no
+		matter what angle he used to assess the effect of pitching, the answer was that pitching had negligible impact on opposing
+		teams' batting success in getting a hit on a ball in play. 
+	</p>
+	<p>
+		This result was not completely unprecedented - previous researchers had even listed the problem of separating fielding and
+		pitching as one of baseball analysis's "Hilbert Problems" (https://www.baseballprospectus.com/news/article/2551/baseballs-hilbert-problems-23-burning-questions).
+		And McCracken's work was pretty generally accepted - a more recent article in 2012 explains that McCracken's work was groundbreaking
+		and changed the mind of most analysts; nowadays, preventing runs from happening is a job that is attributed more to an entire defensive
+		team of fielders rather than just being influenced by pitchers. This shift in perspective de-emphasizes pitchers to the point that
+		even sheer "dumb luck" can contribute just as much to batter success or failure as a pitcher.
+		(http://grantland.com/the-triangle/fantasy-fiesta-pitching-stock-tips/)
+	</p>
+	<p>
+		Thus, while some group members initially wanted to utilize pitching data, our team ultimately decided against using pitching data
+		to evaluate the probability of a batter successfully scoring runs on a plate appearance or not. The research we did gave us 
+		evidence to show that using pitching statistics to assess the likely outcomes of batters' plate appearances would actually
+		give us more noise than predictive power.
+	</p>
+	<p>
+		Equipped with this new knowledge, we began to create <a href="/methodology">our estimated runs model.</a>
+	</p>
 </div><!-- /.blurb -->
