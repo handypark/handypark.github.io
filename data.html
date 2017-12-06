@@ -6,4 +6,64 @@ title: Data
 <div class="blurb">
 	<h1>CS 109a: Final Project</h1>
 	<h2>Data</h2>
+	<h3>Scraping the Data</h3>
+	<p>
+		To study our question, we gathered play-by-play data for all games played in the 2017 season. 
+		Our scraped play-by-play data, which we gathered from https://www.baseball-reference.com/leagues/MLB-schedule.shtml,
+		records the following things:
+		<ul>
+	        	<li>Batter: Who is at bat?</li>
+        		<li>Pitcher: Who is the opposing pitcher?</li>
+			<li>Baserunners: Do baserunners occupy first, second, and/or third base?</li>
+        		<li>Teams: What teams are playing (batting team, fielding team)?</li>
+			<li>Score: What is the score of the game at this point?</li>
+			<li>Outcome: How many runs are scored on this play?</li>
+    		</ul>
+		This data was scraped from the web from the baseball reference pages, and then we worked to clean and manipulate it
+		so that we could have a variable for whether each individual base was occupied, as well as a calculation of the number
+		of runs scored on each particular plate appearance.
+	</p>
+	<p>
+		In addition to this data, we also gathered two other kinds of data: data on the seasonal batting statistics of all players
+		from 2000 to 2017 (http://www.espn.com/mlb/stats/batting/\_/year/), as well as data on teams' defensive/fielding 
+		statistics for all teams from 2000 to 2017 (http://www.espn.com/mlb/stats/team/\_/stat/fielding/year/). We then matched up 
+		batters' statistics (from 2016) and defensive teams' fielding statistics (from 2016) to each play, and 
+		used this matched-up data set to train our baseline model. 
+	</p>
+	<h3>EDA Lesson #1: It's important to have your bases loaded!</h3>
+	<p>
+		When first looking at the play-by-play data, one interesting feature stood out that immediately seemed intuitively 
+		useful - whether each base is occupied. Intuitively, you would expect that if 
+		you have runners on base, you have a much better chance of scoring some number of runs on a plate appearance - and it 
+		turns out that this is the case, as shown below:
+	</p>
+	<p>
+		As we see above, it's clear that having a runner on any base is highly linked to runs being scored. Even when a runner 
+		is on first base, more runs are scored on average through a plate appearance (around .2 runs per plate appearance) than 
+		for those without a runner on first base (less than .1 runs per plate appearance). And for second base (the "runner in 
+		scoring position"!) the disparity is enhanced (around .3 vs .07), and even further when we have a runner on third base 
+		(around .5 vs .07). Thus, as we might expect, having a runner on a later base is linked to increased runs scored on 
+		average on a plate appearance, and having any runner on base at all (even first base) is also linked to increased runs 
+		scored on average for a plate appearance.
+	</p>
+	<h3>EDA Lesson #2: The score of the game doesn't quite matter.</h3>
+	<p>
+		One aspect that we found to have little linkage to runs scored during a plate appearance was that of the score of the 
+		batting or fielding team when a plate appearance occurred. In Figure \ref{fig:TeamScores}, you can see that except for a 
+		couple of outlier scores, the average number of runs scored for a plate appearance varied relatively little when 
+		comparing the averages over many possible scores. 
+	</p>
+	<p>
+		There are slight trends we might identify; low-scoring teams in a game seem to have slightly smaller average points 
+		scored per plate appearance when at bat, and teams tend to score slightly less per plate appearance when the fielding 
+		team has allowed more points already. But in either case, neither trend appears as significant as one might expect (even 
+		ignoring the outliers for the very few high-scoring games with over 16 runs in the game scored by one team).
+	</p>
+	<h3>EDA Lesson #3: Better batters score more often.</h3>
+	<p>
+		INSERT BATTERS' DATA LEARNING HERE. 
+	</p>
+	<p>
+		INSERT BATTERS' DATA CONCLUSION HERE.
+	</p>
 </div><!-- /.blurb -->
