@@ -51,3 +51,8 @@ ul.posts li{
 ul{
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
+img{
+    display: block;
+    margin: auto;
+    width: 60%;
+}
