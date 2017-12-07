@@ -118,6 +118,26 @@ title: Data
 		<li>Which batters are better to pick when the bases are loaded or no one is on base?</li>
 		<li>Which batters are better to pick in certain game score situations?</li>
 	</ul>
+	<h3>Why these questions matter, and why they're difficult to answer:</h3>
+	<p>
+		If we knew how to answer the above questions, our models could help to really improve coaches' decisions and help
+		them determine which batters to play in which situations. The main mechanism that our model would be useful for is
+		that of pinch hitting, where coaches can substitute in batters into the lineup at key moments in the game if they 
+		feel that the situation warrants such a substitution. A model that takes batters' statistics and tells us which 
+		batters are more likely to do better in a given situation could tell a coach whether to substitute in a pinch hitter
+		or not (when the bases are loaded, when your team is down by a certain number of runs, etc.). A model that could
+		differentiate between different batters for various situations would take some of the guesswork out of figuring out
+		when to have batters pinch hit. And even generally, figuring out which batters are best in general for scoring runs
+		would help coaches figure out which players should play games or which players they should aim to recruit for their
+		teams in the off-season.
+	</p>
+	<p>
+		What's challenging about answering these questions, however, is that it's hard to figure out when runs will be scored
+		because our play-by-play data is quite unbalanced. Around 90% of the plays generate no runs at all, and very, very 
+		few plays are able to generate 2 or more runs. This means that any model that we hope to train on the data will just 
+		not have that much data on plays with runs scored to work with when it tries to figure out which plays will score runs
+		and which plays will not. 
+	</p>
 	<p>
 		To answer these questions, we had to get into the <a href = "/methodology">modeling work</a> of our project.
 	</p>
