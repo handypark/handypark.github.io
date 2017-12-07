@@ -52,6 +52,10 @@ ul{
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     font-size: 1.4em;
 }
+fun ul li{
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-size: 1.4em;
+}
 img{
     display: block;
     margin: auto;
