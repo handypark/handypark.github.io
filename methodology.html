@@ -139,10 +139,13 @@ title: Methodology
   		</tr>
 	</table>
 	<p>
-		If we find the mean-squared error for a model that predicts by randomly choosing based on how many plays yielded
-		each number of runs in the training data (aka, a 90% chance of picking 0 runs, etc.), we find that
-		its mean-squared error is around 0.0355. This means that most of our models (save for AdaBoost and the Balanced Multinomial
-		Logistic Regression) have a smaller mean-squared error - meaning that their predicted probabilities for the possible
+		For comparison, we also ran a naive model that takes in the distribution of the training data's outcomes for runs scored
+		on each plate appearance, and just takes a weighted sample from the distribution to predict any given play
+		without considering any predictors (based on how often each number of runs occurs). When we calculate the
+		mean-squared error for the naive model, we find that
+		its mean-squared error is around 0.0355. This means that most of our models 
+		(save for AdaBoost and the Balanced Multinomial	Logistic Regression) have a smaller mean-squared error - 
+		meaning that their predicted probabilities for the possible
 		outcomes are actually better than just trying to mirror the distribution of the data through random samples. 
 		This means that our models' probabilities are indeed giving us helpful information in predicting plays! 
 	</p>
