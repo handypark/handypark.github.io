@@ -46,31 +46,31 @@ title: Methodology
 	</p>
 	<ul>
 		<li>
-			Multinomial Logistic Regression: The standard logistic regression for sorting our data into the five possible
+			<strong>Multinomial Logistic Regression:</strong> The standard logistic regression for sorting our data into the five possible
 			classifications (the five possible numbers of runs scored by a play).
 		</li>
 		<li>
-			Balanced Classes' Logistic Regression: We weighted the five possible classifications so that they weren't
+			<strong>Balanced Classes' Logistic Regression:</strong> We weighted the five possible classifications so that they weren't
 			unbalanced and would hopefully predict that runs would be scored more often, even if bias was introduced.
 		</li>
 		<li>
-			K-Nearest Neighbors: We hoped that a model that just clustered classifications based on the most similar
+			<strong>K-Nearest Neighbors:</strong> We hoped that a model that just clustered classifications based on the most similar
 			plays that had happened would be able to predict when runs would be scored.
 		</li>
 		<li>
-			Decision Tree: We used a decision tree that would try to cut the data into sections based on cutoffs in the
+			<strong>Decision Tree:</strong> We used a decision tree that would try to cut the data into sections based on cutoffs in the
 			predictors' values, and then obtain classifications as a result.
 		</li>
 		<li>
-			Random Forest: Similar to decision trees, except we set up a great many decision trees that are each trained
+			<strong>Random Forest:</strong> Similar to decision trees, except we set up a great many decision trees that are each trained
 			on random subsets of the training data with random predictors dropped out in each tree, and have a majority
 			vote from the random forests to determine classification.
 		</li>
 		<li>
-			Boosting: We used AdaBoost to try to reduce bias error in our model and try to produce better results.
+			<strong>Boosting:</strong> We used AdaBoost to try to reduce bias error in our model and try to produce better results.
 		</li>
 		<li>
-			PCA: We use our predictor variables to generate new "principal components" that are linearly uncorrelated and
+			<strong>PCA:</strong> We use our predictor variables to generate new "principal components" that are linearly uncorrelated and
 			might do better at classifying plate appearances.
 		</li>
 	</ul>
