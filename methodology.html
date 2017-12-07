@@ -6,4 +6,142 @@ title: Methodology
 <div class="blurb">
 	<h1>CS 109a: Final Project</h1>
 	<h2>Methodology</h2>
+	<p>
+	To proceed on our work, we took our combined our play-by-play data that we had matched up with our batting and fielding data,
+	and first cleaned it to make sure it did not contain any "not available" or missing fields. From time to time, we had batters
+	who had no available information (one notable case being that of rookie players in 2017), for whom we had to drop their plate
+	appearances - such cases were only around 5% of the total data that we had collected, so it was acceptable for us to drop these
+	players (especially since our questions only dealt with understanding which players should bat given that we already know how
+	well they did in the previous year). To create our training, testing, and validation data sets, we first sampled 10% of the 
+	data after this dropping procedure, and then split our data into 60% training, 20% testing, 20% validation.
+	</p>
+	<p>
+	Then, we proceeded to use our training data to train models that would tell us, given a data point for a plate appearance
+	(complete with batting statistics for the batter, defensive statistics for the fielding team, and current game state), how
+	many runs the batter would score on that plate appearance (from 0 through 4), classifying each plate appearance into one of
+	these five possible outcomes for the number of runs scored.
+	</p>
+	<h3>Initial Baseline Model</h3>
+	<p>
+	As our initial baseline model, we used a logistic regression with cross-validation in order to predict how many runs a given
+	plate appearance would score. Fitting on our training data, we then got an accuracy score of 90.3% - which seemed extremely
+	promising, until we realized the following problem: the model was predicting that every plate appearance would result in a
+	play that scored no runs. No plate appearances were predicted to have any runs at all, which was correct around 90% of the time,
+	but wouldn't be useful in terms of giving us any predictive power in terms of how one batter might do compared to another
+	batter in given scenarios. 
+	</p>
+	<h3>Attempting to Model Plate Appearance Outcomes</h3>
+	<p>
+	Given our previous fears of an unbalanced dataset and the lack of performance from our baseline model, we knew that finding
+	a model to predict the number of runs a given plate appearance would score would be quite difficult. Indeed, the more and more
+	we looked at our data and at our baseline model, the more we became convinced that it might be the case that the results of
+	individual plays in scoring or not scoring runs might be relatively noisy and not well related to any of our predictors. It 
+	seemed that plays most often seemed to score no runs, and that runs scored were few and far in between and not very predictable.
+	</p>
+	<p>
+	Still, to confirm these possible trends, we trained a variety of models that we thought might be able to predict the number of
+	runs that a plate appearance would yield with greater success (and better differentiate the probabilities of possible outcomes
+	for plate appearances). We tried each and every single one of the following modeling methods to classify plate appearances into
+	0, 1, 2, 3, or 4 runs scored:
+	</p>
+	<ul>
+		<li>
+			Multinomial Logistic Regression: The standard logistic regression for sorting our data into the five possible
+			classifications (the five possible numbers of runs scored by a play).
+		</li>
+		<li>
+			Balanced Classes' Logistic Regression: We weighted the five possible classifications so that they weren't
+			unbalanced and would hopefully predict that runs would be scored more often, even if bias was introduced.
+		</li>
+		<li>
+			K-Nearest Neighbors: We hoped that a model that just clustered classifications based on the most similar
+			plays that had happened would be able to predict when runs would be scored.
+		</li>
+		<li>
+			Decision Tree: We used a decision tree that would try to cut the data into sections based on cutoffs in the
+			predictors' values, and then obtain classifications as a result.
+		</li>
+		<li>
+			Random Forest: Similar to decision trees, except we set up a great many decision trees that are each trained
+			on random subsets of the training data with random predictors dropped out in each tree, and have a majority
+			vote from the random forests to determine classification.
+		</li>
+		<li>
+			Boosting: We used AdaBoost to try to reduce bias error in our model and try to produce better results.
+		</li>
+		<li>
+			PCA: We use our predictor variables to generate new "principal components" that are linearly uncorrelated and
+			might do better at classifying plate appearances.
+		</li>
+	</ul>
+	<p>
+		Unfortunately, every single one of these methods gave us the same result: <strong>Every plate appearance was still
+		predicted to yield no runs.</strong> What this meant was that what we had feared might be true: our predictors might
+		not be able to predict when a given plate appearance would score one run or more runs rather than no runs. 
+	</p>
+	<h3>Revising our Study Question and Creating Our Final Model</h3>
+	<p>
+		But not all hope was lost. While we couldn't evaluate models on the basis of how accurately they discretely classified
+		outcomes of plate appearances into the number of runs scored, we could still evaluate these models and use them for
+		another purpose. Our models still generated probabilities of getting 0, 1, 2, 3, or 4 runs that could be used both
+		to evaluate our models and to evaluate the likelihoods that certain batters would achieve those outcomes in a given
+		situation. By comparing these probabilities from one batter to another, we could still have a method of comparing what
+		batters might be successful in scoring in crucial plate appearances. 
+	</p>
+	<p>
+		In fact, we could still evaluate our models by using mean squared loss. We can take our predicted probabilities for each
+		possible classification (0 through 4 runs) on each given plate appearance and we turn it into a vector of those five
+		probabilities. Then, we find the difference between the predicted vector for an appearance and the actual one-hot-encoded 
+		vector that gives us the actual classification for that plate appearance. We then take the mean of the squares of these
+		differences to get the mean squared loss. This mean squared loss is thus a way to determine how well our predicted 
+		probabilities of runs scored on plays mirror the actual runs scored by plays, and is a suitable alternative to 
+		discrete classification accuracy.
+	</p>
+	<p>
+		Here is a table that shows the mean squared error for each of our modeling methods used:
+	</p>
+	<table>
+		<tr>
+    		<th>Model Type</th>
+    		<th>Mean-Squared Loss</th>
+  		</tr>
+  		<tr>
+    		<td>Decision Tree</td>
+    		<td>0.031317</td>
+  		</tr>
+  		<tr>
+    		<td>Multinomial Logistic</td>
+    		<td>0.035302</td>
+  		</tr>
+		<tr>
+    		<td>K-Nearest Neighbors</td>
+    		<td>0.035403</td>
+  		</tr>
+		<tr>
+    		<td>K-Nearest Neighbors</td>
+    		<td>0.035423</td>
+  		</tr>
+		<tr>
+    		<td>Initial Log.</td>
+    		<td>0.035437</td>
+  		</tr>
+		<tr>
+    		<td>PCA</td>
+    		<td>0.035530</td>
+  		</tr>
+		<tr>
+    		<td>AdaBoost</td>
+    		<td>0.043177</td>
+  		</tr>
+		<tr>
+    		<td>Balanced Multi. Log</td>
+    		<td>0.105504</td>
+  		</tr>
+	</table>
+	<p>
+		If we find the same mean-squared error for a model that predicts a 100% chance of 0 runs for every play, we find that
+		its mean-squared error is 0.038472. This means that most of our model (save for AdaBoost and the Balanced Multinomial
+		Logistic Regression) are actually improving upon a model that blindly predicts 0 runs for every play, which means that
+		our models' probabilities are indeed more helpful than not having those probabilities. Thus, 
+	</p>
 </div><!-- /.blurb -->
