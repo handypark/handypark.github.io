@@ -50,6 +50,7 @@ ul.posts li{
 }
 ul{
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-size: 1.4em;
 }
 img{
     display: block;
