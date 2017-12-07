@@ -39,4 +39,27 @@ title: Results
 		as to how likely a play is to produce runs based on the situation you're in - and if you're a coach, this knowledge can
 		certainly help.
 	</p>
+	<h3>Question 2: How important are the bases occupied by baserunners to the likelihood of scoring runs?</h3>
+	<p>
+		In our exploratory data analysis, we saw how having runners on base linked strongly with scoring more runs on a
+		plate appearance. <strong>Our model definitely confirmed that having runners on base is very important - it
+		greatly improves your chance of scoring runs.</strong>
+	</p>
+	<p>
+		To test this hypothesis using our ensemble model, we looked at different scenarios where bases were or were
+		not occupied by baserunners, to see if our model would replicate the pattern we found in our exploration of the data
+		where having runners on base improved the average amount of runs scored. And surely enough, when we took samples for
+		each possible situation from our training data, we saw that same trend in the expected number of runs scored. 
+		(Here, suppose we have a plate appearance. Then, the expected number of runs scored for that play
+		is calculated by taking a weighted sum of all possible outcomes from 0 to 4
+		runs, with each outcome weighted by its probability to occur as predicted by our model.)
+		When we do this, we get the following averages for the expected number of runs depending on which bases are occupied:
+	</p>
+	<p>
+		<strong>INSERT INFO ABOUT OUR BASES SITUATION HERE!</strong>
+	</p>
+	<h3>Question 3: How do we substitute pinch hitters in different base scenarios?</h3>
+	<p>
+		<strong>INSERT INFO ABOUT OUR PINCH HITTING COMPARISONS HERE!</strong>
+	</p>
 </div><!-- /.blurb -->
