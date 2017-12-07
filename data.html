@@ -75,14 +75,33 @@ title: Data
 		scored per plate appearance when at bat, and teams tend to score slightly less per plate appearance when the fielding 
 		team has allowed more points already. But in either case, neither trend appears as significant as one might expect (even 
 		ignoring the outliers for the very few high-scoring games with over 16 runs in the game scored by one team). Still, 
-		there's enough of a trend that we should investigate this further.
+		there's enough of a samll trend (when looking at both scores of batting and fielding teams) that we might want to 
+		investigate this further.
 	</p>
-	<h3>EDA Lesson #3: Better batters score more often.</h3>
+	<h3>EDA Lesson #3: Batters who created more runs last season and fly ball batters create more runs this season.</h3>
 	<p>
-		INSERT BATTERS' DATA LEARNING HERE. 
+		By grouping the play-by-play data based on which plays generated runs and which plays did not generate runs, we can take
+		a look at various factors that seem to link with generating runs.
+	</p>
+	<p> 
+		First off, scoring plate appearances in 2017 featured batters with 3.2 more runs created on average 
+		(based on 2016) than non-scoring plate appearances. Batters in scoring plays had 67.6 runs created in 2016 on average,
+		while batters in non-scoring plays had 64.4 runs created in 2016 on average:
 	</p>
 	<p>
-		INSERT BATTERS' DATA CONCLUSION HERE.
+		<img src="images/RC.PNG"
+     		alt="Scoring appearances featured hitters with slightly more runs created in 2016 on average."
+     		title="Runs Created EDA">
+	</p>
+	<p>
+		In addition, scoring plate appearances in 2017 featured batters who hit more fly balls per ground ball than batters 
+		for non-scoring plate appearances, as shown below. The trend also holds for isolated power, where batters for scoring
+		plate appearances had slightly higher isolated power on average compared to those for non-scoring plate appearances:
+	</p>
+	<p>
+		<img src="images/FlyBalls.PNG"
+     		alt="Scoring appearances featured hitters with slightly more fly balls per ground ball on average."
+     		title="Fly Balls EDA">
 	</p>
 	<h3>Our finalized study questions:</h3>
 	<p>
