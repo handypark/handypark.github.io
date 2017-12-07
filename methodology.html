@@ -139,9 +139,27 @@ title: Methodology
   		</tr>
 	</table>
 	<p>
-		If we find the same mean-squared error for a model that predicts a 100% chance of 0 runs for every play, we find that
-		its mean-squared error is 0.038472. This means that most of our models (save for AdaBoost and the Balanced Multinomial
-		Logistic Regression) are actually improving upon a model that blindly predicts 0 runs for every play, which means that
-		our models' probabilities are indeed more helpful than not having those probabilities. Thus, 
+		If we find the mean-squared error for a model that predicts by randomly choosing based on how many plays yielded
+		each number of runs in the training data (aka, a 90% chance of picking 0 runs, etc.), we find that
+		its mean-squared error is around 0.0355. This means that most of our models (save for AdaBoost and the Balanced Multinomial
+		Logistic Regression) have a smaller mean-squared error - meaning that their predicted probabilities for the possible
+		outcomes are actually better than just trying to mirror the distribution of the data through random samples. 
+		This means that our models' probabilities are indeed giving us helpful information in predicting plays! 
 	</p>
+	<p>
+		While our decision tree appears to have the best mean-squared error here, we find that it only divides the data into
+		four possible outcomes rather than the five that we need (it's a depth-2 tree, so it only splits the data two times to 
+		give four possible ways to classify possible outcomes). Thus, we decided to create an ensemble model that also 
+		incorporates a k-nearest neighbors regression with the decision tree and a multinomial logistic model. This last
+		ensemble model had a mean-squared error of .032984, which was still better than any other models besides our decision
+		tree. 	
+	</p>
+	<p>
+		Thus, in conclusion for our modeling work, we chose this ensemble model, which has a mean-squared error that is improved
+		over both individual predictive models and just trying to mirror the original data's distribution. Now that we had this
+		ensemble model that could predict the probability of scoring 0 runs, 4 runs, or anything in between for a particular
+		plate appearance, we had to put the model into action to learn about how bases occupied and batter stats would influence our
+		our predictions for that play. Let's take a look at the <a href = "/results">results of our work</a> in investigating
+		pinch hitting.
+	</p>	
 </div><!-- /.blurb -->
