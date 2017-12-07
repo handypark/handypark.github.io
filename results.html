@@ -6,4 +6,37 @@ title: Results
 <div class="blurb">
 	<h1>CS 209a: Final Project</h1>
 	<h2>Results</h2>
+	<p>
+		Now that we have our model (as explained in <a href="/methodology">Methodology</a>), it's time for us to answer
+		some of these questions that we asked about in our <a href = "/data">Data</a> section.
+	</p>
+	<h3>Question 1: Can a predictive model help predict runs scored on a plate appearance?</h3>
+	<p>
+		In short - <strong>yes.</strong> In some sense, we found here that any of our modeling techniques had the same
+		flaw - no matter what we did, all of them predicted that every play would result in zero runs. In that most basic sense,
+		some might claim that our model can't predict how many runs will be scored by a play.
+	</p>
+	<p>
+		However, our model still gave us some very important predictive power - namely, even though we couldn't get discrete
+		classifications, we still managed to find prediction probabilities that performed significantly better than just taking
+		a naive, random weighted sample (based on the distribution of runs scored on plate appearances in the training data). 
+		Our final ensemble model (along with many of our other models) gave us probabilities for the number of runs created 
+		by a plate appearance that more closely mirrored real-life plate appearances than a weighted random model that takes
+		none of the predictors we used into consideration. This result is evidenced by the significant reduction in 
+		mean-squared error that we achieved through our ensemble model (as compared to a model that utilized none of the
+		statistical predictors our model used). 
+	</p>
+	<p>
+		Because we are able to provide probabilities for individual plate appearances
+		that are meaningful and more accurate due to the batting, defensive, and base occupancy predictors they utilize, we have
+		created a tool that coaches could use to assess how likely a plate appearance is to produce any number of runs. And since
+		our tool takes things like batting statistics, defensive statistics, and base occupancies into account, which vary
+		over the course of a baseball game, coaches can use the model situationally to predict the likelihoods of scoring runs 
+		or not for a given play in a baseball game just by entering the relevant statistics and situational predictors.
+	</p>
+	<p>
+		Thus, while our model might not be able to predict that a play will produce runs, it can definitely give probabilities
+		as to how likely a play is to produce runs based on the situation you're in - and if you're a coach, this knowledge can
+		certainly help.
+	</p>
 </div><!-- /.blurb -->
