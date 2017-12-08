@@ -31,6 +31,34 @@ title: Data
 		We then matched up batters' statistics (from 2016) and defensive teams' fielding statistics (from 2016) to each play, and 
 		used this matched-up data set to train our baseline model. 
 	</p>
+	<p>
+		For batting stats, we had the following predictors:
+	</p>
+	<ul>
+		<li>AB/HR:  How many at bats does it take on average for a player to hit a home run?</li>
+		<li>AVG: Batting average -- for every 1 at bat, what is the proportion of times a player will make a hit?</li>
+		<li>BB/K: Ratio of walks per strikeout. </li>
+		<li>BB/PA:  Ratio of walks per play appearance. </li>
+		<li>FB: Number of fly balls hit (not HRs) by a batter.</li>
+		<li>G/F: Number of ground balls hit per fly ball hit.</li>
+		<li>G: Number of ground balls hit.</li>
+		<li>RC: Runs created by a batter.</li>
+		<li>RC27: Runs created per 27 outs by a batter.</li>
+    	</ul>
+	<p>
+		For fielding stats, we had the following predictors:
+	</p>
+	<ul>
+		<li>A: The number of defensive assists a team recorded.</li>
+		<li>E: Errors by a fielding team.</li>
+		<li>FPCT: Fielding percentage - what is the percentage of fielding attempts that were successful?</li>
+		<li>PO: Putouts - how many outs a team recorded through a variety of means under the team's control.</li>
+		<li>TC: Total Chances - the number of plays in which at least one defensive player participated</li>
+    	</ul>
+	<p>
+		Now that we've explained what predictors we've used, we'll take a look at the lessons we learned from exploratory
+		data analysis.
+	</p>
 	<h3>EDA Lesson #1: It's important to have your bases loaded!</h3>
 	<p>
 		When first looking at the play-by-play data, one interesting feature stood out that immediately seemed intuitively 
