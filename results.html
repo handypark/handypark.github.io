@@ -49,14 +49,28 @@ title: Results
 		To test this hypothesis using our ensemble model, we looked at different scenarios where bases were or were
 		not occupied by baserunners, to see if our model would replicate the pattern we found in our exploration of the data
 		where having runners on base improved the average amount of runs scored. And surely enough, when we took samples for
-		each possible situation from our training data, we saw that same trend in the expected number of runs scored. 
+		each possible situation from our training data, we saw that same trend in the expected number of runs scored. <br />
 		(Here, suppose we have a plate appearance. Then, the expected number of runs scored for that play
 		is calculated by taking a weighted sum of all possible outcomes from 0 to 4
-		runs, with each outcome weighted by its probability to occur as predicted by our model.)
-		[In these four graphs, we actually varied the a
+		runs, with each outcome weighted by its probability to occur as predicted by our model.) <br />
+		Take a look at this table that we generated to summarize every possible on-base scenario, where each entry on the left corresponds
+		to (First Base, Second Base, Third Base) - a 0 represents that the base is unoccupied, and a 1 represents that the base
+		is occupied.
 	</p>
 	<p>
-		<strong>INSERT INFO ABOUT OUR BASES SITUATION HERE!</strong>
+		<img src="images/BasesTable.png"
+     		alt="More baserunners, higher chance to score."
+     		title="Base Occupancies vs. Predicted Chances to Score Runs">
+	</p>
+	<p>
+		The most important thing to note here - <strong>the more bases that are occupied, the higher the predicted chance
+		of scoring on a play.</strong> For instance, the predicted probability of scoring 1 run jumps dramatically from .0389 to 
+		.1139 just by getting someone on second base (represented by (0, 1, 0) in the table). Even having just one base runner on third 
+		base (represented by (0, 0, 1) in the table) leads to a predicted probability of .2354 for scoring 1 run, 
+		a dramatic increase from having one runner on second base. And as expected, the lowest chance of scoring no runs (in other words,
+		the highest chance scoring at least one run) is predicted when all bases are loaded, with around a 37% predicted chance of scoring
+		in that case. Thus, just as we found in the exploratory data analysis that we did, it's important to have the bases
+		loaded in order to score runs, and even putting one more baserunner on base really improves the chances of scoring runs.
 	</p>
 	<h3>Question 3: How do we substitute pinch hitters in different base scenarios?</h3>
 	<p>
@@ -146,7 +160,7 @@ title: Results
 		</li>
 		<li>
 			One of the most powerful predictors of a plate appearance's runs scored is whether the bases are
-			occupied - having baserunners on base increases the chance of scoring dramatically.
+			occupied - having more baserunners on bases increases the chances of scoring dramatically.
 		</li>
 		<li>
 			When the bases are loaded, power batters/fly ball hitters are more likely to score,
