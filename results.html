@@ -53,13 +53,96 @@ title: Results
 		(Here, suppose we have a plate appearance. Then, the expected number of runs scored for that play
 		is calculated by taking a weighted sum of all possible outcomes from 0 to 4
 		runs, with each outcome weighted by its probability to occur as predicted by our model.)
-		When we do this, we get the following averages for the expected number of runs depending on which bases are occupied:
+		[In these four graphs, we actually varied the a
 	</p>
 	<p>
 		<strong>INSERT INFO ABOUT OUR BASES SITUATION HERE!</strong>
 	</p>
 	<h3>Question 3: How do we substitute pinch hitters in different base scenarios?</h3>
 	<p>
-		<strong>INSERT INFO ABOUT OUR PINCH HITTING COMPARISONS HERE!</strong>
+		In order to investigate this question, we sampled scenarios for a variety of situations where first base was
+		occupied, second base was occupied, third base was occupied, or all bases were occupied (bases loaded). Then,
+		holding all other predictors constant, we tried varying different batting statistic predictors to see what kind of
+		effects they had on the likelihood of a plate appearance yielding runs. The batting statistics that we tried to
+		vary were ISOP (the isolated power of a batter), G/F (the number of ground balls per fly ball a batter hits), 
+		RC (the runs created by a batter), and AVG (the batting average, or percentage of times a batter gets a hit on an at-bat)..
 	</p>
+	<p>
+		When looking at just one base at a time, we didn't find many trends in any of these statistics using our ensemble model.
+		For most situations, the effect of increasing or decreasing any of these statistics was relatively minimal when it came
+		to how our predicted probabilities for each outcome changed.
+	</p>
+	<p>
+		One interesting trend that we noticed however, was that whether we have no one on base,
+		or a runner on first base, second base or third base, having a 
+		player who hits more ground balls than fly balls on average actually seems to lead to an increased chance of scoring
+		a nonzero amount of runs on a plate appearance in any of these scenarios. Below, each line represents the probability 
+		of having that number of runs scored (labeled 0 through 4), and each graph represents a different situation (no bases
+		occupied, first base occupied, etc.)
+	</p>
+	<p>
+		In all four graphs, a higher ratio of ground balls to fly balls seems to give us a higher chance of geting a nonzero
+		amount of runs scored. Thus, it seems that having a pinch hitter with a high number of ground balls compared to fly balls
+		are generally decent at improving our chances of scoring on a specific plate appearance.
+	</p>
+	<p>
+		However, the most definitive result that we found of all was advice on what to do when <strong>our bases are loaded.
+		</strong> In this scenario, our model really differentiates between different batters' chances of scoring runs,
+		particularly for two statistics - <strong>ground balls per fly ball, and isolated power (ISOP).</strong>
+	</p>
+	<p>
+		When the bases are loaded, unlike for general situations, our model predicts that it is better
+		to have a batter whose ground ball to fly
+		ball ratio falls somewhere between 0.6 and 0.7 (meaning that they hit around 0.6 - 0.7 ground balls for every fly ball,
+		so they hit more fly balls on average). This gives us the least chance of coming away with no runs from a plate 
+		appearance, and gives us the greatest chance of coming away with 2 runs (along with a relatively high chance of coming away
+		with 1 run). Fewer ground balls per fly ball or more ground balls per fly ball give us a worse chance to score runs
+		on the play, as shown by this graph (the labels 0 through 4 correspond to the probabilities of 0 runs through 4 runs,
+		each of which is plotted as one of the five lines below):
+	</p>
+	<p>
+		<img src="images/BaseAllGF.PNG"
+     		alt="When the bases are loaded, have fly ball hitters pinch hit."
+     		title="Bases Loaded - Scoring Probabilites based on G/F">
+	</p>
+	<p>		
+		So unlike the trend our model predicts for general situations, in the special case of having the bases 
+		loaded, our model predicts that a coach ought to put in a pinch hitter who hits more fly balls than ground balls (by a ratio
+		of around 3:2). This makes absolute sense: we know from baseball that although ground ball hitters get the ball 
+		in play more often without having a pop-out, when the bases are loaded, a well-hit deep fly ball (even if it's a sacrifice fly so that the
+		batter gets out) can actually guarantee that one or two runs are scored .
+	</p>
+	<p>
+		This idea of opting for a power hitter in a loaded-bases situation also translates over to isolated power, or ISOP.
+		ISOP, as isolated power, is supposed to tell us how many extra bases a batter averages on their hits over a single,
+		effectively measuring how powerful a hitter is. Players with higher ISOP are often those who hit the ball farther because
+		they average more doubles, triples, or home runs per at bat than those with lower ISOP. From our above result for 
+		hitters who hit more fly balls than ground balls when the bases are loaded, we might then expect that a similar argument
+		would hold for having a batter with a higher ISOP when the bases are loaded. And as the graph below shows, 
+		our model predicts a similar result (the labels 0 through 4 correspond to the probabilities of 0 runs through 4 runs,
+		each of which is plotted as one of the five lines below):
+	</p>
+	<p>
+		<img src="images/BaseAllISOP.PNG"
+     		alt="When the bases are loaded, put your power hitters on."
+     		title="Bases Loaded - Scoring Probabilites based on ISOP">
+	</p>
+	<p>
+		We can see from the model predictions shown in the graph above that generally, as a player's ISOP increases, they're
+		more likely to score runs when the bases are loaded. The least chance for yielding zero runs for a plate appearance
+		occurs when we have ISOP is on the higher end around 0.24, and the chances of scoring one run or two runs slowly increases
+		as ISOP increases for the batter. Thus, we can see that when the bases are loaded, a coach might want to put in batters
+		with higher ISOPs of around .20 to .25 rather than those with lower ISOP in order to score runs on a plate appearance.
+	</p>
+	<h3>Conclusions</h3>
+	<p>
+		So what have these last two points told us? The strongest conclusion that we can draw is the following: <br />
+		<strong>When the bases are loaded, power batters are more likely to score (where power batters have higher ISOPs
+			(around .20-.25) and lower ground balls per fly ball (around .6-.7).</strong> <br />
+		This is pretty helpful advice for a coach in a given situation who wants to know which batter should pinch hit in
+		an important situation where the bases are loaded - if the player who is supposed to bat has a low ISOP or hits
+		more ground balls per fly ball, the coach might be well-advised to have a high ISOP or fly ball hitter pinch hit 
+		in the original player's stead. Even though ground ball hitters seem to do slightly better in general situations, 
+		for the crucial bases-loaded situation, we should opt for power hitters.
+	</p>	
 </div><!-- /.blurb -->
