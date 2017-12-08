@@ -136,13 +136,26 @@ title: Results
 	</p>
 	<h3>Conclusions</h3>
 	<p>
-		So what have these last two points told us? The strongest conclusion that we can draw is the following: <br />
-		<strong>When the bases are loaded, power batters are more likely to score (where power batters have higher ISOPs
-			(around .20-.25) and lower ground balls per fly ball (around .6-.7).</strong> <br />
-		This is pretty helpful advice for a coach in a given situation who wants to know which batter should pinch hit in
-		an important situation where the bases are loaded - if the player who is supposed to bat has a low ISOP or hits
-		more ground balls per fly ball, the coach might be well-advised to have a high ISOP or fly ball hitter pinch hit 
-		in the original player's stead. Even though ground ball hitters seem to do slightly better in general situations, 
-		for the crucial bases-loaded situation, we should opt for power hitters.
-	</p>	
+		So what have we learned? The strongest conclusions that we can draw are the following: 
+	</p>
+	<ul>
+		<li>
+			It's difficult to predict any single play's number of runs scored, but we can generate useful
+			probabilities for each possible number of runs scored.
+		</li>
+		<li>
+			One of the most powerful predictors of a plate appearance's runs scored is whether the bases are
+			occupied - having baserunners on base increases the chance of scoring dramatically.
+		</li>
+		<li>
+			When the bases are loaded, power batters/fly ball hitters are more likely to score,
+			with ISOPs around .20-.25 and ground ball to fly ball ratios of around .6-.7. If you're a coach,
+			then put those batters in as pinch hitters in place of weaker hitters when the bases are loaded!
+		</li>
+	</ul>	
+	<p>
+		As shown above, our ensemble model provides support for all three of these points, and shows us just how powerful
+		data science can be in helping us to gain insight into how we view baseball through the lens of the data that
+		surrounds it.
+	</p>
 </div><!-- /.blurb -->
