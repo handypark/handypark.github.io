@@ -46,8 +46,9 @@ title: Methodology
 	</p>
 	<ul>
 		<li>
-			<strong>Multinomial Logistic Regression:</strong> The standard logistic regression for sorting our data into the five possible
-			classifications (the five possible numbers of runs scored by a play).
+			<strong>Multinomial Logistic Regression:</strong> A logistic regression for sorting our data into the five possible
+			classifications (the five possible numbers of runs scored by a play) using multinomial classification rather
+			than a one-versus rest approach where each classification is done as a binary classification problem.
 		</li>
 		<li>
 			<strong>Balanced Classes' Logistic Regression:</strong> We weighted the five possible classifications so that they weren't
@@ -89,7 +90,7 @@ title: Methodology
 		batters might be successful in scoring in crucial plate appearances. 
 	</p>
 	<p>
-		In fact, we could still evaluate our models by using mean squared loss. We can take our predicted probabilities for each
+		In fact, we could still evaluate our models by using mean-squared loss. We can take our predicted probabilities for each
 		possible classification (0 through 4 runs) on each given plate appearance and we turn it into a vector of those five
 		probabilities. Then, we find the difference between the predicted vector for an appearance and the actual one-hot-encoded 
 		vector that gives us the actual classification for that plate appearance. We then take the mean of the squares of these
